@@ -43,6 +43,10 @@ namespace InventoryControl.Infrastructure.Base
 
             //Persona
             modelBuilder.Entity<Persona>().HasKey(x => x.Id);
+            //Gastos
+            modelBuilder.Entity<Gasto>().HasKey(x => x.Id);
+            modelBuilder.Entity<Gasto>().HasOne(x => x.Persona);
+
             //Proveedor
             modelBuilder.Entity<Proveedor>().HasKey(x => x.Id);
             //Usuario
