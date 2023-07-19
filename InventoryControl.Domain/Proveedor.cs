@@ -11,5 +11,6 @@ namespace InventoryControl.Domain
     {
         public string? Nombres { get; private set; }
         public string? Celular { get; private set; }
+        public bool Habilitado { get; private set; }
     }
 }

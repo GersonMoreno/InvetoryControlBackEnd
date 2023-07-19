@@ -14,5 +14,6 @@ namespace InventoryControl.Domain
         public decimal Costo { get; private set; }
         public decimal Precio { get; private set; }
         public decimal Utilidad { get; private set; }
+        public bool Habilitado { get; private set; }
     }
 }
