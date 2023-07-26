@@ -8,6 +8,15 @@ namespace InventoryControl.Domain
 {
     public class Compra:Factura
     {
+        public Compra(FacturaDTO facturaDTO):base(facturaDTO)
+
+        {
+            
+        }
+        public Compra()
+        {
+            
+        }
         public Proveedor? Proveedor { get; private set; }
     }
 }

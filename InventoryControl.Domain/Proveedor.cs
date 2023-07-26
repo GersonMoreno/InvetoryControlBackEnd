@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 
 namespace InventoryControl.Domain
 {
-    public class Proveedor: Entity<int>
+    public class Proveedor: Entity
     {
         public string? Nombres { get; private set; }
         public string? Celular { get; private set; }
         public bool Habilitado { get; private set; }
+        public Proveedor()
+        {
+            
+        }
     }
 }

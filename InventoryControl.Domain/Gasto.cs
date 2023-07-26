@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InventoryControl.Domain
 {
-    public class Gasto: Entity<int>
+    public class Gasto: Entity
     {
         public string? Descripcion { get; private set; }
         public string? Valor { get; private set; }

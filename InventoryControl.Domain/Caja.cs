@@ -8,12 +8,16 @@ using System.Threading.Tasks;
 
 namespace InventoryControl.Domain
 {
-    public class Caja:Entity<int>
+    public class Caja:Entity
     {
         public Usuario? Usuario { get; private set; }
         public EstadoCaja Estado { get; private set; }
         public DateTime FechaApertura { get; private set; }
         public DateTime FechaCierre { get; private set; }
+        public Caja()
+        {
+            
+        }
     }
 
 }

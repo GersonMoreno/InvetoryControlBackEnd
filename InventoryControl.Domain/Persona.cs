@@ -7,12 +7,16 @@ using System.Threading.Tasks;
 
 namespace InventoryControl.Domain
 {
-    public class Persona: Entity<int>
+    public class Persona: Entity
     {
         public string? NumeroIdentificacion { get; private set; }
         public string? Nombres { get; private set; }
         public string? Apellidos { get; private set; }
         public string? Celular { get; private set; }
         public bool Habilitado { get; private set; }
+        public Persona()
+        {
+            
+        }
     }
 }

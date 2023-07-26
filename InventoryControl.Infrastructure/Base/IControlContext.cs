@@ -33,7 +33,11 @@ namespace InventoryControl.Infrastructure.Base
             //Facturas
             modelBuilder.Entity<Factura>().HasKey(x => x.Id);
             modelBuilder.Entity<Factura>().HasOne(x => x.Usuario);
-            modelBuilder.Entity<Factura>().HasMany(x => x.Articulos);
+            modelBuilder.Entity<Factura>().HasMany(x => x.DetallesFactura);
+
+            //DetalleFactura
+            modelBuilder.Entity<DetalleFactura>().HasKey(x => x.Id);
+            modelBuilder.Entity<DetalleFactura>().HasOne(x => x.Articulo);
 
             //Compras
             modelBuilder.Entity<Compra>().HasOne(x => x.Proveedor);

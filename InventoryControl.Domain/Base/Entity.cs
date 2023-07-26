@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace InventoryControl.Domain.Base
 {
-    public abstract class Entity<T> : IEntity<T>
+    public abstract class Entity
     {
-        public virtual T Id { get; protected set; }
+        public virtual long Id { get; protected set; }
+        public void AsignarId()
+        {
+            Id = 1;
+        }
     }
 }
