@@ -14,6 +14,7 @@ namespace InventoryControl.Domain
         public string? Apellidos { get; private set; }
         public string? Celular { get; private set; }
         public bool Habilitado { get; private set; }
+        public string NombreCompleto => $"{Nombres} {Apellidos}";
         public Persona()
         {
             

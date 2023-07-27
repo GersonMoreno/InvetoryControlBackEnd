@@ -9,17 +9,21 @@ namespace InventoryControl.Domain
 {
     public class Venta: Factura
     {
+        public Caja? Caja { get; private set; }
         public Persona? Cliente { get; private set; }
         public decimal? Subtotal { get; private set; }
         public decimal? Descuento { get; private set; }
 
-        public Venta(FacturaDTO facutura, VentaDTO venta):base(facutura) {
+        public Venta(FacturaDTO facutura, VentaDTO venta, Caja? caja) : base(facutura)
+        {
             if (venta is null) throw new Exception("La venta no puede ser nula.");
-            if (venta.Cliente is null ||venta.Cliente.Id <= 0) throw new Exception("El cliente no puede ser nula o vacío.");
+            if(caja is null || caja.Id <= 0 || caja.Estado == Enums.EstadoCaja.Cerrada) throw new Exception("La caja debe estar abierta.");
+            if (venta.Cliente is null || venta.Cliente.Id <= 0) throw new Exception("El cliente no puede ser nula o vacío.");
             if (venta.Descuento is null || venta.Descuento < 0) throw new Exception("El descuento no puede ser nulo o menor que 0.");
             Subtotal = 0m;
             Cliente = venta.Cliente;
             Descuento = venta.Descuento;
+            Caja = caja;
         }
         public Venta()
         {

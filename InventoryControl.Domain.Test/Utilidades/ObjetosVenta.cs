@@ -11,18 +11,23 @@ namespace InventoryControl.Domain.Test.Utilidades
         
         public Venta ConFacturaNula()
         {
-            return new Venta(null, null);
+            return new Venta(null, null, null);
         }
+        
         public Venta SinUsuario()
         {
             var facturaDTO = new FacturaDTO();
-            return new Venta(facturaDTO, null);
+            var caja = new Caja();
+            caja.AsignarId();
+            return new Venta(facturaDTO, null,caja);
         }
         public Venta ConUsuarioVacio()
         {
             var facturaDTO = new FacturaDTO();
             facturaDTO.Usuario = new Usuario();
-            return new Venta(facturaDTO, null);
+            var caja = new Caja();
+            caja.AsignarId();
+            return new Venta(facturaDTO, null, caja);
         }
         public Venta ConFechaNula()
         {
@@ -30,7 +35,9 @@ namespace InventoryControl.Domain.Test.Utilidades
             facturaDTO.Usuario = new Usuario();
             facturaDTO.Usuario.AsignarId();
             facturaDTO.Fecha = null;
-            return new Venta(facturaDTO, null);
+            var caja = new Caja();
+            caja.AsignarId();
+            return new Venta(facturaDTO, null, caja);
         }
         public Venta ConVentaNula()
         {
@@ -38,7 +45,44 @@ namespace InventoryControl.Domain.Test.Utilidades
             facturaDTO.Usuario = new Usuario();
             facturaDTO.Usuario.AsignarId();
             facturaDTO.Fecha = DateTime.Now;
-            return new Venta(facturaDTO, null);
+            var caja = new Caja();
+            caja.AsignarId();
+            return new Venta(facturaDTO, null, caja);
+        }
+
+        public Venta ConCajaNula()
+        {
+            var facturaDTO = new FacturaDTO();
+            facturaDTO.Usuario = new Usuario();
+            facturaDTO.Usuario.AsignarId();
+            facturaDTO.Fecha = DateTime.Now;
+            var ventaDTO = new VentaDTO();
+            ventaDTO.Cliente = null;
+            return new Venta(facturaDTO, ventaDTO, null);
+        }
+        public Venta ConCajaVacia()
+        {
+            var facturaDTO = new FacturaDTO();
+            facturaDTO.Usuario = new Usuario();
+            facturaDTO.Usuario.AsignarId();
+            facturaDTO.Fecha = DateTime.Now;
+            var ventaDTO = new VentaDTO();
+            ventaDTO.Cliente = null;
+            var caja = new Caja();
+            return new Venta(facturaDTO, ventaDTO, caja);
+        }
+        public Venta ConCajaCerrada()
+        {
+            var facturaDTO = new FacturaDTO();
+            facturaDTO.Usuario = new Usuario();
+            facturaDTO.Usuario.AsignarId();
+            facturaDTO.Fecha = DateTime.Now;
+            var ventaDTO = new VentaDTO();
+            ventaDTO.Cliente = null;
+            var caja = new Caja();
+            caja.AsignarId();
+            caja.CerrarCaja();
+            return new Venta(facturaDTO, ventaDTO, caja);
         }
         public Venta ConClienteNulo()
         {
@@ -48,7 +92,9 @@ namespace InventoryControl.Domain.Test.Utilidades
             facturaDTO.Fecha = DateTime.Now;
             var ventaDTO = new VentaDTO();
             ventaDTO.Cliente = null;
-            return new Venta(facturaDTO, ventaDTO);
+            var caja = new Caja();
+            caja.AsignarId();
+            return new Venta(facturaDTO, ventaDTO, caja);
         }
         public Venta ConClienteVacio()
         {
@@ -58,7 +104,9 @@ namespace InventoryControl.Domain.Test.Utilidades
             facturaDTO.Fecha = DateTime.Now;
             var ventaDTO = new VentaDTO();
             ventaDTO.Cliente = new Persona();
-            return new Venta(facturaDTO, ventaDTO);
+            var caja = new Caja();
+            caja.AsignarId();
+            return new Venta(facturaDTO, ventaDTO, caja);
         }
         public Venta ConDescuentoNulo()
         {
@@ -70,7 +118,9 @@ namespace InventoryControl.Domain.Test.Utilidades
             ventaDTO.Cliente = new Persona();
             ventaDTO.Cliente.AsignarId();
             ventaDTO.Descuento = null;
-            return new Venta(facturaDTO, ventaDTO);
+            var caja = new Caja();
+            caja.AsignarId();
+            return new Venta(facturaDTO, ventaDTO, caja);
         }
         public Venta ConDescuentoMenor0()
         {
@@ -82,7 +132,9 @@ namespace InventoryControl.Domain.Test.Utilidades
             ventaDTO.Cliente = new Persona();
             ventaDTO.Cliente.AsignarId();
             ventaDTO.Descuento = -2000;
-            return new Venta(facturaDTO, ventaDTO);
+            var caja = new Caja();
+            caja.AsignarId();
+            return new Venta(facturaDTO, ventaDTO, caja);
         }
         public Venta Exitosa()
         {
@@ -94,7 +146,9 @@ namespace InventoryControl.Domain.Test.Utilidades
             ventaDTO.Cliente = new Persona();
             ventaDTO.Cliente.AsignarId();
             ventaDTO.Descuento = 0;
-            return new Venta(facturaDTO, ventaDTO);
+            var caja = new Caja();
+            caja.AsignarId();
+            return new Venta(facturaDTO, ventaDTO, caja);
         }
         public Venta ConDescuentode4000()
         {
@@ -107,7 +161,10 @@ namespace InventoryControl.Domain.Test.Utilidades
             ventaDTO.Cliente = new Persona();
             ventaDTO.Cliente.AsignarId();
             ventaDTO.Descuento = 4000;
-            return new Venta(facturaDTO, ventaDTO);
+            var caja = new Caja();
+            caja.AsignarId();
+            return new Venta(facturaDTO, ventaDTO, caja);
         }
+
     }
 }

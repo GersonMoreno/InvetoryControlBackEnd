@@ -21,6 +21,42 @@
             }
         }
         [Test]
+        public void NoSePuedeHacerUnaVentaConCajaNula()
+        {
+            try
+            {
+                var venta = new ObjetosVenta().ConCajaNula();
+            }
+            catch (Exception ex)
+            {
+                Assert.That(ex.Message, Is.EqualTo("La caja debe estar abierta."));
+            }
+        }
+        [Test]
+        public void NoSePuedeHacerUnaVentaConCajaVacia()
+        {
+            try
+            {
+                var venta = new ObjetosVenta().ConCajaVacia();
+            }
+            catch (Exception ex)
+            {
+                Assert.That(ex.Message, Is.EqualTo("La caja debe estar abierta."));
+            }
+        }
+        [Test]
+        public void NoSePuedeHacerUnaVentaConCajaCerrada()
+        {
+            try
+            {
+                var venta = new ObjetosVenta().ConCajaCerrada();
+            }
+            catch (Exception ex)
+            {
+                Assert.That(ex.Message, Is.EqualTo("La caja debe estar abierta."));
+            }
+        }
+        [Test]
         public void NoSePuedeHacerUnaVentaConVendedorNulo()
         {
             try

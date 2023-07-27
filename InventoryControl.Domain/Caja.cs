@@ -18,6 +18,10 @@ namespace InventoryControl.Domain
         {
             
         }
+        public void CerrarCaja()
+        {
+            Estado = EstadoCaja.Cerrada;
+        }
     }
 
 }
