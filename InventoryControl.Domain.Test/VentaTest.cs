@@ -65,7 +65,7 @@
             }
             catch (Exception ex)
             {
-                Assert.That(ex.Message, Is.EqualTo("El usuario no puede ser nulo o vacío."));
+                Assert.That(ex.Message, Is.EqualTo("El usuario no puede ser nulo o vacío y debe estar habilitado."));
             }
         }
         [Test]
@@ -77,7 +77,7 @@
             }
             catch (Exception ex)
             {
-                Assert.That(ex.Message, Is.EqualTo("El usuario no puede ser nulo o vacío."));
+                Assert.That(ex.Message, Is.EqualTo("El usuario no puede ser nulo o vacío y debe estar habilitado."));
             }
         }
         [Test]
@@ -113,7 +113,7 @@
             }
             catch (Exception ex)
             {
-                Assert.That(ex.Message, Is.EqualTo("El cliente no puede ser nula o vacío."));
+                Assert.That(ex.Message, Is.EqualTo("El cliente no puede ser nulo o vacío y debe estar habilitado."));
             }
         }
         [Test]
@@ -125,7 +125,7 @@
             }
             catch (Exception ex)
             {
-                Assert.That(ex.Message, Is.EqualTo("El cliente no puede ser nula o vacío."));
+                Assert.That(ex.Message, Is.EqualTo("El cliente no puede ser nulo o vacío y debe estar habilitado."));
             }
         }
         [Test]

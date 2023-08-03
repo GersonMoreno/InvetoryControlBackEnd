@@ -17,7 +17,7 @@ namespace InventoryControl.Domain
         public string NombreCompleto => $"{Nombres} {Apellidos}";
         public Persona()
         {
-            
+            Habilitado = true;
         }
     }
 }

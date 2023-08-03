@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InventoryControl.Application.Ventas.RealizarVenta
+namespace InventoryControl.Application.Ventas.Agregar
 {
-    public class RealizarVentaRequest
+    public class AgregarRequest
     {
         public List<ArticuloVender>? Articulos { get; set; }
         public decimal? Descuento { get; set; }

@@ -18,7 +18,7 @@ namespace InventoryControl.Domain
         {
             if (venta is null) throw new Exception("La venta no puede ser nula.");
             if(caja is null || caja.Id <= 0 || caja.Estado == Enums.EstadoCaja.Cerrada) throw new Exception("La caja debe estar abierta.");
-            if (venta.Cliente is null || venta.Cliente.Id <= 0) throw new Exception("El cliente no puede ser nula o vacío.");
+            if (venta.Cliente is null || venta.Cliente.Id <= 0 ||! venta.Cliente.Habilitado) throw new Exception("El cliente no puede ser nulo o vacío y debe estar habilitado.");
             if (venta.Descuento is null || venta.Descuento < 0) throw new Exception("El descuento no puede ser nulo o menor que 0.");
             Subtotal = 0m;
             Cliente = venta.Cliente;

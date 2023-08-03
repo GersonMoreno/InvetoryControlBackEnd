@@ -8,7 +8,7 @@ namespace InventoryControl.Domain.Base
 {
     public interface IAuthenticationService
     {
-        int GetIdUser();
+        long GetIdUser();
         int GetRolUser();
     }
 }

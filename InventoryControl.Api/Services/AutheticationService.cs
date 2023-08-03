@@ -12,13 +12,13 @@ namespace InventoryControl.Api.Services
         {
             _httpContextAccessor = httpContextAccessor;
         }
-        public int GetIdUser()
+        public long GetIdUser()
         {
             var token = GetToken();
             if (token == null)
                 return 0;
             var id = token.Claims.First(x => x.Type == ClaimTypes.Sid).Value;
-            return int.Parse(id);
+            return long.Parse(id);
         }
 
         public int GetRolUser()

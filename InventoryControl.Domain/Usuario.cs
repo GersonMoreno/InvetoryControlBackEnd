@@ -17,8 +17,9 @@ namespace InventoryControl.Domain
         public bool Habilitado { get; private set; }
         public Usuario()
         {
-            
+            Habilitado = true;
         }
+        
 
     }
 }

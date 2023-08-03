@@ -1,4 +1,5 @@
-﻿using InventoryControl.Application.Ventas.RealizarVenta;
+﻿using InventoryControl.Application.Ventas.Agregar;
+using InventoryControl.Application.Ventas.Consultar;
 using InventoryControl.Domain.Base;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -20,9 +21,18 @@ namespace InventoryControl.Api.Controllers
 
         [Authorize]
         [HttpPost("agregar")]
-        public async Task<ActionResult> agregar(RealizarVentaRequest Request)
+        public async Task<ActionResult> Agregar(AgregarRequest Request)
         {
-            var respuesta = await new RealizarVentaCommand(_unitOfWork, _authenticationService).Handle(Request);
+            var respuesta = await new AgregarCommand(_unitOfWork, _authenticationService).Handle(Request);
+            if (respuesta.HuboError)
+                return BadRequest(respuesta);
+            return Ok(respuesta);
+        }
+        [Authorize]
+        [HttpPost("consultar")]
+        public async Task<ActionResult> Consultar()
+        {
+            var respuesta = await new ConsultarQuery(_unitOfWork, _authenticationService).Handle();
             if (respuesta.HuboError)
                 return BadRequest(respuesta);
             return Ok(respuesta);
